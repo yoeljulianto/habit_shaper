@@ -9,8 +9,7 @@ export const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
 });
-
-async function waitForDb(retries = 20, delayMs = 2000): Promise<void> {
+async function waitForDb(retries = 60, delayMs = 3000): Promise<void> {
   for (let i = 1; i <= retries; i++) {
     try {
       const conn = await pool.getConnection();

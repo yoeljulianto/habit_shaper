@@ -26,6 +26,3 @@ CREATE TABLE IF NOT EXISTS goal_logs (
   CONSTRAINT fk_logs_goal FOREIGN KEY (goal_id) REFERENCES goals(id) ON DELETE CASCADE,
   UNIQUE KEY uniq_goal_date (goal_id, log_date)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE INDEX idx_goals_user ON goals(user_id);
-CREATE INDEX idx_logs_goal_date ON goal_logs(goal_id, log_date);
